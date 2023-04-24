@@ -1,0 +1,14 @@
+{
+  "templates": {
+    "supplier": {
+      "revision": "HEAD",
+      "workspace": ".",
+      "crate": "supplier"
+    },
+    "distributor": {
+      "revision": "HEAD",
+      "workspace": ".",
+      "crate": "distributor"
+    }
+  }
+}

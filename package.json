@@ -1,0 +1,22 @@
+{
+  "name": "demo",
+  "main": "api.ts",
+  "type": "module",
+  "version": "0.1.0",
+  "dependencies": {
+    "@fadroma/agent": "latest",
+    "@fadroma/scrt": "latest"
+  },
+  "devDependencies": {
+    "@hackbg/fadroma": "latest",
+    "@hackbg/ganesha": "latest"
+  },
+  "scripts": {
+    "build": "fadroma build",
+    "status": "fadroma status",
+    "mocknet": "FADROMA_OPS=./ops.ts FADROMA_CHAIN=Mocknet_CW1 fadroma",
+    "devnet": "FADROMA_OPS=./ops.ts FADROMA_CHAIN=ScrtDevnet fadroma",
+    "testnet": "FADROMA_OPS=./ops.ts FADROMA_CHAIN=ScrtTestnet fadroma",
+    "mainnet": "FADROMA_OPS=./ops.ts FADROMA_CHAIN=ScrtMainnet fadroma"
+  }
+}
