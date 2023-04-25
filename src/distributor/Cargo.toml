@@ -11,5 +11,5 @@ readme = "README.md"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-fadroma = { git = "https://github.com/hackbg/fadroma", branch = "feat/podman-nix", features = ["scrt"] }
+fadroma = { git = "https://github.com/hackbg/fadroma", branch = "master", features = ["scrt"] }
 serde = { version = "1.0.114", default-features = false, features = ["derive"] }
