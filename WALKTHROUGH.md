@@ -230,7 +230,7 @@ It can be imported from the `storage::iterable` module. We want to store the add
 all this data into the following struct:
 
 ```rust
-#[derive(Serialize, Deserialize, FadromaSerialize, FadromaDeserialize, Debug)]
+#[derive(Serialize, Deserialize, FadromaSerialize, FadromaDeserialize, Canonize, Debug)]
 #[serde(rename_all = "snake_case")]
 pub struct AuctionEntry<A> {
     pub contract: ContractLink<A>,
