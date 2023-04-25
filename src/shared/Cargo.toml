@@ -1,0 +1,8 @@
+[package]
+name = "shared"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+fadroma = { git = "https://github.com/hackbg/fadroma", tag = "crate@0.8.0", features = ["vk"] }
+serde = { version = "1.0.114", default-features = false, features = ["derive"] }

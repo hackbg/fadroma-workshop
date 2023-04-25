@@ -1,6 +1,7 @@
 [workspace]
 resolver = "2"
 members = [
-  "src/distributor",
-  "src/supplier"
+  "src/auction",
+  "src/factory",
+  "src/shared"
 ]

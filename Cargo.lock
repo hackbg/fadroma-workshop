@@ -14,6 +14,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "auction"
+version = "0.1.0"
+dependencies = [
+ "fadroma",
+ "serde",
+]
+
+[[package]]
 name = "base16ct"
 version = "0.1.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -197,14 +205,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "distributor"
-version = "0.0.0"
-dependencies = [
- "fadroma",
- "serde",
-]
-
-[[package]]
 name = "dyn-clone"
 version = "1.0.11"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -258,23 +258,36 @@ dependencies = [
 ]
 
 [[package]]
+name = "factory"
+version = "0.1.0"
+dependencies = [
+ "fadroma",
+ "serde",
+ "shared",
+]
+
+[[package]]
 name = "fadroma"
 version = "0.8.0"
-source = "git+https://github.com/hackbg/fadroma?branch=feat/podman-nix#795cd3b685a5fa4395dc287dc73810c788b2dc99"
+source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.0#d66111a7c33dee7c39f4df74598dc5216f353767"
 dependencies = [
  "cosmwasm-std",
  "fadroma-derive-canonize",
  "fadroma-derive-serde",
  "fadroma-dsl",
  "fadroma-proc-auth",
+ "rand_chacha",
+ "rand_core 0.6.4",
  "schemars",
  "serde",
+ "sha2 0.10.6",
+ "subtle",
 ]
 
 [[package]]
 name = "fadroma-derive-canonize"
 version = "0.3.5"
-source = "git+https://github.com/hackbg/fadroma?branch=feat/podman-nix#795cd3b685a5fa4395dc287dc73810c788b2dc99"
+source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.0#d66111a7c33dee7c39f4df74598dc5216f353767"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -284,7 +297,7 @@ dependencies = [
 [[package]]
 name = "fadroma-derive-serde"
 version = "0.3.0"
-source = "git+https://github.com/hackbg/fadroma?branch=feat/podman-nix#795cd3b685a5fa4395dc287dc73810c788b2dc99"
+source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.0#d66111a7c33dee7c39f4df74598dc5216f353767"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -294,7 +307,7 @@ dependencies = [
 [[package]]
 name = "fadroma-dsl"
 version = "0.8.0"
-source = "git+https://github.com/hackbg/fadroma?branch=feat/podman-nix#795cd3b685a5fa4395dc287dc73810c788b2dc99"
+source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.0#d66111a7c33dee7c39f4df74598dc5216f353767"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -304,7 +317,7 @@ dependencies = [
 [[package]]
 name = "fadroma-proc-auth"
 version = "0.1.1"
-source = "git+https://github.com/hackbg/fadroma?branch=feat/podman-nix#795cd3b685a5fa4395dc287dc73810c788b2dc99"
+source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.0#d66111a7c33dee7c39f4df74598dc5216f353767"
 dependencies = [
  "quote",
  "syn 1.0.109",
@@ -429,6 +442,12 @@ dependencies = [
 ]
 
 [[package]]
+name = "ppv-lite86"
+version = "0.2.17"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5b40af805b3121feab8a3c29f04d8ad262fa8e0561883e7653e024ae4479e6de"
+
+[[package]]
 name = "proc-macro2"
 version = "1.0.56"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -444,6 +463,16 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4424af4bf778aae2051a77b60283332f386554255d722233d09fbfc7e30da2fc"
 dependencies = [
  "proc-macro2",
+]
+
+[[package]]
+name = "rand_chacha"
+version = "0.3.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e6c10a63a0fa32252be49d21e7709d4d4baf8d231c2dbce1eaa8141b9b127d88"
+dependencies = [
+ "ppv-lite86",
+ "rand_core 0.6.4",
 ]
 
 [[package]]
@@ -592,6 +621,14 @@ dependencies = [
 ]
 
 [[package]]
+name = "shared"
+version = "0.1.0"
+dependencies = [
+ "fadroma",
+ "serde",
+]
+
+[[package]]
 name = "signature"
 version = "1.6.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -622,14 +659,6 @@ name = "subtle"
 version = "2.4.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "6bdef32e8150c2a081110b42772ffe7d7c9032b606bc226c8260fd97e0976601"
-
-[[package]]
-name = "supplier"
-version = "0.0.0"
-dependencies = [
- "fadroma",
- "serde",
-]
 
 [[package]]
 name = "syn"
