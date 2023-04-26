@@ -6,7 +6,7 @@ pub mod auction {
         scrt::vk::{auth::{self, VkAuth}, ViewingKey},
         killswitch::{self, Killswitch, ContractStatus},
         admin::{self, Admin, Mode},
-        storage::{SingleItem, TypedKey, map::Map},
+        storage::{SingleItem, TypedKey, map::InsertOnlyMap},
         cosmwasm_std::{
             self, Response, StdError, Uint128, BankMsg,
             Addr, CanonicalAddr, StdResult, to_binary, coin
@@ -24,12 +24,12 @@ pub mod auction {
 
     namespace!(BiddersNs, b"bidders");
     #[inline]
-    fn bidders() -> Map<
+    fn bidders() -> InsertOnlyMap<
         TypedKey<'static, CanonicalAddr>,
         Uint128,
         BiddersNs
     > {
-        Map::new()
+        InsertOnlyMap::new()
     }
 
     impl Contract {
