@@ -1,4 +1,4 @@
-import { Address, Client, Deployment } from '@fadroma/agent'
+import { Address, Client, Deployment, Error } from '@fadroma/agent'
 
 export default class Demo extends Deployment {
 
@@ -23,8 +23,10 @@ export default class Demo extends Deployment {
 
 export class AuctionFactory extends Client {
 
-  createAuction = (name: string, end: number, admin: Address = this.agent.address) =>
-    this.execute({ create_auction: { admin, name, end_block: end } })
+  createAuction = (name: string, end: number, admin: Address = this.agent.address) => {
+    if (!name) throw new Error('Pass auction name')
+    return this.execute({ create_auction: { admin, name, end_block: end } })
+  }
 
   listAuctions = (start: number = 0, limit: number = 10) =>
     this.query({ list_auctions: { pagination: { start, limit } } })

@@ -8,11 +8,11 @@ specifiers:
   typescript: ^5.0.4
 
 dependencies:
-  '@fadroma/agent': 1.0.0-rc.15
-  '@fadroma/scrt': 9.0.0-rc.15_@fadroma+agent@1.0.0-rc.15
+  '@fadroma/agent': 1.0.0-rc.16
+  '@fadroma/scrt': 9.0.0-rc.16_@fadroma+agent@1.0.0-rc.16
 
 devDependencies:
-  '@hackbg/fadroma': 1.0.0-beta.81_@hackbg+ganesha@4.0.1
+  '@hackbg/fadroma': 1.0.0-beta.82_@hackbg+ganesha@4.0.1
   '@hackbg/ganesha': 4.0.1_typescript@5.0.4
   typescript: 5.0.4
 
@@ -40,8 +40,8 @@ packages:
     dependencies:
       bn.js: 5.2.1
 
-  /@fadroma/agent/1.0.0-rc.15:
-    resolution: {integrity: sha512-nDvbR1MPIJZYU2fYCklHxWfNA5rlam/yQItADYgrXjhKWcc5tjiDRjIuHo4IF6AKtYuRBwpjgLZOk9X9IFfwdw==}
+  /@fadroma/agent/1.0.0-rc.16:
+    resolution: {integrity: sha512-tHEzpMlzHCtkN46Gq6W84qR9P/RVs/o7U9WBEmKNq2brcfmHe2xaoSimUguzHJG1gl6sg5cZzQ/uqmetOv63pA==}
     dependencies:
       '@hackbg/4mat': 1.0.0
       '@hackbg/dump': 1.0.1
@@ -52,32 +52,32 @@ packages:
       '@hackbg/oops': 1.0.1
       '@hackbg/over': 1.0.1
 
-  /@fadroma/connect/3.0.0-rc.27_@fadroma+ops@3.0.0-rc.26:
-    resolution: {integrity: sha512-1JCL0/aHuxkg1bd3FATHn19KBWTshx4CncEi/ag7nzaTr1OkeQhUS14Vm9KynZoD58LrkVyieZhEKJic5gIhww==}
+  /@fadroma/connect/3.0.0-rc.28_@fadroma+ops@3.0.0-rc.27:
+    resolution: {integrity: sha512-GPLsxD9mfNGkn83kBTUgD1QyaNwjA29ZnjI4/aJWj2mEgDl1vKWDnJyv4xxXoJ+jSK5aFHLep49maIrf2fOM8A==}
     peerDependencies:
-      '@fadroma/ops': 3.0.0-rc.26
+      '@fadroma/ops': 3.0.0-rc.27
     peerDependenciesMeta:
       '@fadroma/ops':
         optional: true
     dependencies:
-      '@fadroma/agent': 1.0.0-rc.15
-      '@fadroma/ops': 3.0.0-rc.26_@hackbg+ganesha@4.0.1
-      '@fadroma/scrt': 9.0.0-rc.15_@fadroma+agent@1.0.0-rc.15
+      '@fadroma/agent': 1.0.0-rc.16
+      '@fadroma/ops': 3.0.0-rc.27_@hackbg+ganesha@4.0.1
+      '@fadroma/scrt': 9.0.0-rc.16_@fadroma+agent@1.0.0-rc.16
       '@hackbg/conf': 2.0.0
     transitivePeerDependencies:
       - encoding
     dev: true
 
-  /@fadroma/ops/3.0.0-rc.26_@hackbg+ganesha@4.0.1:
-    resolution: {integrity: sha512-b4O+EH2K8hexC7S3cqQa5hmY12lcOTJrpc0N9K2Q7sAHDHBeXo/GwHqPduzvNzXxLoM4Whn4rzEQTvsb7077gw==}
+  /@fadroma/ops/3.0.0-rc.27_@hackbg+ganesha@4.0.1:
+    resolution: {integrity: sha512-2JHTwJ+7YEhfsMyG/v/eEw2YSDWcz2zK4y04kpQDMVCEG1qUzRNEpmDBIa1hsRilzjqNguiRXQzNajNAcU9QVg==}
     peerDependencies:
       '@hackbg/ganesha': ^4
     peerDependenciesMeta:
       '@hackbg/ganesha':
         optional: true
     dependencies:
-      '@fadroma/connect': 3.0.0-rc.27_@fadroma+ops@3.0.0-rc.26
-      '@hackbg/cmds': 1.3.3_dotenv@16.0.3
+      '@fadroma/connect': 3.0.0-rc.28_@fadroma+ops@3.0.0-rc.27
+      '@hackbg/cmds': 2.0.0
       '@hackbg/dock': 1.3.1
       '@hackbg/file': 1.1.0
       '@hackbg/ganesha': 4.0.1_typescript@5.0.4
@@ -92,12 +92,12 @@ packages:
       - supports-color
     dev: true
 
-  /@fadroma/scrt/9.0.0-rc.15_@fadroma+agent@1.0.0-rc.15:
-    resolution: {integrity: sha512-9ooDaVPKxtauZZkPupW1zAZD5MmF+80W6jfBxjBAtNd6oawtmcs49KuI1zu2gTBUom1vdaugMwN0jpXg1X7Acw==}
+  /@fadroma/scrt/9.0.0-rc.16_@fadroma+agent@1.0.0-rc.16:
+    resolution: {integrity: sha512-RsjjV9LtfA/CLtLELKGBmMcN6NY7ZFQlEqTmDJqIo2O0A8rVNdVC1GlyaH3800RXPN8LvWOLsDEOQCMYADDErw==}
     peerDependencies:
-      '@fadroma/agent': 1.0.0-rc.15
+      '@fadroma/agent': 1.0.0-rc.16
     dependencies:
-      '@fadroma/agent': 1.0.0-rc.15
+      '@fadroma/agent': 1.0.0-rc.16
       '@hackbg/conf': 2.0.0
       '@ungap/structured-clone': 1.0.2
       secretjs: 1.8.1
@@ -162,20 +162,14 @@ packages:
   /@hackbg/allo/1.0.1:
     resolution: {integrity: sha512-4kxNqEmongDYO3eUzATEZbicleljcJQ7eggYPZaFykAyqCKlETMVlshUWFj1IgS2pmQCRODZogbCafGVwk4JOw==}
 
-  /@hackbg/cmds/1.3.3_dotenv@16.0.3:
-    resolution: {integrity: sha512-x+IMHCE/MjhHyDegZoO9OE/YlTFEhKoXBWn5k1kp62uoCoHEzM76MFsg9m1uamPl4/l2ue0VaryVRlaPMm93RQ==}
+  /@hackbg/cmds/2.0.0:
+    resolution: {integrity: sha512-iiVbiXeh3EKxQTvq0YUVZntAaTu+FN7NzLy0FmXVkh7Fy2VyBeuzpf+gJMHJRY5qzQ5FKTSz3dY/fLjKpCGPbQ==}
     hasBin: true
-    peerDependencies:
-      dotenv: '*'
-    peerDependenciesMeta:
-      dotenv:
-        optional: true
     dependencies:
       '@hackbg/hide': 1.0.0
       '@hackbg/logs': 2.0.1
       '@hackbg/task': 1.0.1
       '@hackbg/time': 1.0.0
-      dotenv: 16.0.3
     dev: true
 
   /@hackbg/conf/2.0.0:
@@ -196,8 +190,8 @@ packages:
   /@hackbg/dump/1.0.1:
     resolution: {integrity: sha512-4mdzRuVcseddnvItGr//Etk+gphWQ0NIXoqnRVxEKfvKY0mAIP58/lF5akeJPCoy+eef1VgTP+aeIdALNs1HUA==}
 
-  /@hackbg/fadroma/1.0.0-beta.81_@hackbg+ganesha@4.0.1:
-    resolution: {integrity: sha512-4DrB2XIQtCC2mfWH54MNeZbgwIxUtO1ROTpMhbeDdia+nWpPbAxFzfFCYe12hqOHcSC4uwGxfqZWVQSB+/Hzkw==}
+  /@hackbg/fadroma/1.0.0-beta.82_@hackbg+ganesha@4.0.1:
+    resolution: {integrity: sha512-KW4VOE51yJAbvbej9oPHdyhseZn2a9vM+vnAkC+a9pq0Ln/6LvEJTwwTiptNjzKvqtkIPG8cwePaM5jnQfr/uw==}
     hasBin: true
     peerDependencies:
       '@hackbg/ganesha': ^4
@@ -207,9 +201,9 @@ packages:
       dotenv:
         optional: true
     dependencies:
-      '@fadroma/agent': 1.0.0-rc.15
-      '@fadroma/connect': 3.0.0-rc.27_@fadroma+ops@3.0.0-rc.26
-      '@fadroma/ops': 3.0.0-rc.26_@hackbg+ganesha@4.0.1
+      '@fadroma/agent': 1.0.0-rc.16
+      '@fadroma/connect': 3.0.0-rc.28_@fadroma+ops@3.0.0-rc.27
+      '@fadroma/ops': 3.0.0-rc.27_@hackbg+ganesha@4.0.1
       '@hackbg/ganesha': 4.0.1_typescript@5.0.4
       dotenv: 16.0.3
     transitivePeerDependencies:

@@ -35,4 +35,22 @@ export default class DemoProject extends Project {
   //   // ...
   // })
 
+  listAuctions = this.command(
+    'auction list',
+    'list auctions',
+    async (name: string, end: number) => {
+      const deployment = (await this.deployment as Demo)
+      console.log(await deployment.listAuctions())
+    }
+  )
+
+  createAuction = this.command(
+    'auction create',
+    'create an auction',
+    async (name: string, end: number = 0) => {
+      const deployment = await this.deployment as Demo
+      console.log(await deployment.createAuction(name, end))
+    }
+  )
+
 }
