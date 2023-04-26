@@ -1,37 +1,23 @@
-import { Client, Deployment, Pagination } from '@fadroma/agent'
+import { Address, Client, Deployment } from '@fadroma/agent'
 
 export default class Demo extends Deployment {
 
-  auctionFactory = this.contract({
-    name:    "AuctionFactory",
-    crate:   "factory",
-    client:  AuctionFactory,
-    initMsg: async () => ({
-      auction: (await this.auction.uploaded).asInfo
-    })
+  auction = this.template<Auction>({ crate: "auction", client: Auction })
+
+  auctionFactory = this.contract<AuctionFactory>({
+    name: "AuctionFactory",
+    crate: "factory",
+    client: AuctionFactory,
+    initMsg: async () => ({ auction: (await this.auction.uploaded).asInfo }),
   })
 
-  auction = this.template({
-    crate:  "auction",
-    client: Auction,
-  })
+  createAuction = (name: string, end: number, admin: Address = this.agent?.address) =>
+    this.auctionFactory.expect('factory must be deployed to create auction')
+      .createAuction(name, end, admin)
 
-  createAuction (name: string, end: number, admin: Address = this.agent?.address) {
-    return this.auctionFactory.expect().createAuction(name, end, admin)
-  }
-
-  get auctions () {
-    const factory = this.auctionFactory.expect('factory must be deployed to list auctions')
-    return new Promise(async (resolve) => {
-      let auctions = []
-      let page = []
-      while (page = await factory.listAuctions({ start: auctions.length, page: 10 })) {
-        this.log.log('Fetched auctions:', page)
-        auctions = [...auctions, ...page]
-      }
-      resolve(this.auction.instances(auctions))
-    })
-  }
+  listAuctions = (start: number = 0, limit: number = 10) =>
+    this.auctionFactory.expect('factory must be deployed to list auctions')
+      .listAuctions(start, limit)
 
 }
 
@@ -40,9 +26,11 @@ export class AuctionFactory extends Client {
   createAuction = (name: string, end: number, admin: Address = this.agent.address) =>
     this.execute({ create_auction: { admin, name, end_block: end } })
 
-  listAuctions = (pagination?: Pagination) =>
-    this.query({ list_auctions: { pagination } })
+  listAuctions = (start: number = 0, limit: number = 10) =>
+    this.query({ list_auctions: { pagination: { start, limit } } })
 
 }
 
-export class Auction extends Client {}
+export class Auction extends Client {
+  // Implement auction contract methods here...
+}
