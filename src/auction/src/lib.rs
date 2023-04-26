@@ -70,7 +70,6 @@ pub mod auction {
         #[execute]
         fn bid() -> Result<Response, <Self as Auction>::Error> {
             let sale_info = INFO.load_or_error(deps.storage)?;
-
             if sale_info.end_block < env.block.height {
                 return Err(StdError::generic_err("Sale has finished."));
             }
@@ -105,14 +104,19 @@ pub mod auction {
         #[execute]
         fn retract_bid() -> Result<Response, <Self as Auction>::Error> {
             let sale_info = INFO.load_or_error(deps.storage)?;
-
             if sale_info.end_block > env.block.height {
                 return Err(StdError::generic_err("Sale hasn't finished yet."));
             }
 
+            let sender = info.sender.as_str().canonize(deps.api)?;
+            let highest_bidder = HIGHEST_BID.load_or_error(deps.storage)?;
+
+            if highest_bidder == sender {
+                return Err(StdError::generic_err("You have won the sale and cannot retract your bid."));
+            }
+
             let mut bidders = bidders();
 
-            let sender = info.sender.as_str().canonize(deps.api)?;
             let balance = bidders.get_or_default(deps.storage, &sender)?;
             bidders.insert(deps.storage, &sender, &Uint128::zero())?;
 
@@ -122,6 +126,32 @@ pub mod auction {
                     amount: vec![coin(balance.u128(), "uscrt")]
                 }]
             } else {
+                vec![]
+            };
+
+            Ok(Response::default().add_messages(send_msg))
+        }
+
+        #[execute]
+        #[admin::require_admin]
+        fn claim_proceeds() -> Result<Response, <Self as Auction>::Error> {
+            let sale_info = INFO.load_or_error(deps.storage)?;
+            if sale_info.end_block > env.block.height {
+                return Err(StdError::generic_err("Sale hasn't finished yet."));
+            }
+
+            let send_msg = if let Some(addr) = HIGHEST_BID.load(deps.storage)? {
+                let mut bidders = bidders();
+
+                let balance = bidders.get_or_default(deps.storage, &addr)?;
+                bidders.insert(deps.storage, &addr, &Uint128::zero())?;
+
+                vec![BankMsg::Send {
+                    to_address: info.sender.into_string(),
+                    amount: vec![coin(balance.u128(), "uscrt")]
+                }]
+            } else {
+                // No one made any bids on this sale
                 vec![]
             };
 

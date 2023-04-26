@@ -27,6 +27,9 @@ pub trait Auction: Killswitch + VkAuth {
     #[execute]
     fn retract_bid() -> Result<Response, <Self as Auction>::Error>;
 
+    #[execute]
+    fn claim_proceeds() -> Result<Response, <Self as Auction>::Error>;
+
     #[query]
     fn view_bid(
         address: String,
