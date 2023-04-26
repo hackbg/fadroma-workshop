@@ -77,15 +77,18 @@ pub mod auction {
 
             let sender = info.sender.canonize(deps.api)?;
 
-            let mut balance = bidders().get_or_default(deps.storage, &sender)?;
+            let mut bidders = bidders();
+            let mut balance = bidders.get_or_default(deps.storage, &sender)?;
             balance += info.funds.into_iter()
                 .find(|x| x.denom == "uscrt")
                 .map(|x| x.amount)
                 .unwrap_or_default();
 
+            bidders.insert(deps.storage, &sender, &balance)?;
+
             if let Some(addr) = HIGHEST_BID.load(deps.storage)? {
                 if addr != sender {
-                    let current_highest = bidders().get_or_error(deps.storage, &addr)?;
+                    let current_highest = bidders.get_or_error(deps.storage, &addr)?;
 
                     if balance > current_highest {
                         HIGHEST_BID.save(deps.storage, &sender)?;
