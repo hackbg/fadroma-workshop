@@ -19,6 +19,7 @@ version = "0.1.0"
 dependencies = [
  "fadroma",
  "serde",
+ "shared",
 ]
 
 [[package]]
@@ -268,8 +269,8 @@ dependencies = [
 
 [[package]]
 name = "fadroma"
-version = "0.8.0"
-source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.0#d66111a7c33dee7c39f4df74598dc5216f353767"
+version = "0.8.5"
+source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.5#56594f138cf82363a126605bafd2b9656850f07e"
 dependencies = [
  "cosmwasm-std",
  "fadroma-derive-canonize",
@@ -287,7 +288,7 @@ dependencies = [
 [[package]]
 name = "fadroma-derive-canonize"
 version = "0.3.5"
-source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.0#d66111a7c33dee7c39f4df74598dc5216f353767"
+source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.5#56594f138cf82363a126605bafd2b9656850f07e"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -297,7 +298,7 @@ dependencies = [
 [[package]]
 name = "fadroma-derive-serde"
 version = "0.3.0"
-source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.0#d66111a7c33dee7c39f4df74598dc5216f353767"
+source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.5#56594f138cf82363a126605bafd2b9656850f07e"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -307,7 +308,7 @@ dependencies = [
 [[package]]
 name = "fadroma-dsl"
 version = "0.8.0"
-source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.0#d66111a7c33dee7c39f4df74598dc5216f353767"
+source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.5#56594f138cf82363a126605bafd2b9656850f07e"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -317,7 +318,7 @@ dependencies = [
 [[package]]
 name = "fadroma-proc-auth"
 version = "0.1.1"
-source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.0#d66111a7c33dee7c39f4df74598dc5216f353767"
+source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.5#56594f138cf82363a126605bafd2b9656850f07e"
 dependencies = [
  "quote",
  "syn 1.0.109",

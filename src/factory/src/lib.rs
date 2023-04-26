@@ -93,7 +93,7 @@ pub mod factory {
             let auctions = auctions();
 
             let index = auctions.len(deps.storage)? - 1;
-            auctions.update_at(deps.storage, index, |mut entry| {
+            auctions.update(deps.storage, index, |mut entry| {
                 entry.contract.address = address.canonize(deps.api)?;
 
                 Ok(entry)

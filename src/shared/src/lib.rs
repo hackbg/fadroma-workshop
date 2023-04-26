@@ -22,7 +22,7 @@ pub trait Auction: Killswitch + VkAuth {
     ) -> Result<Response, <Self as Auction>::Error>;
 
     #[execute]
-    fn bid(amount: Uint128) -> Result<Response, <Self as Auction>::Error>;
+    fn bid() -> Result<Response, <Self as Auction>::Error>;
 
     #[execute]
     fn retract_bid() -> Result<Response, <Self as Auction>::Error>;
@@ -36,7 +36,7 @@ pub trait Auction: Killswitch + VkAuth {
     #[query]
     fn active_bids(
         pagination: Pagination
-    ) -> Result<PaginatedResponse<Vec<Uint128>>, <Self as Auction>::Error>;
+    ) -> Result<PaginatedResponse<Uint128>, <Self as Auction>::Error>;
 
     #[query]
     fn sale_status() -> Result<SaleStatus, <Self as Auction>::Error>;
