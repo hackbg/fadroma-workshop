@@ -103,7 +103,7 @@ pub mod factory {
         }
 
         #[query]
-        pub fn query(
+        pub fn list_auctions(
             pagination: Pagination
         ) -> Result<PaginatedResponse<AuctionEntry<Addr>>, StdError> {
             let limit = pagination.limit.min(Pagination::LIMIT);

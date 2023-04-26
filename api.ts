@@ -1,58 +1,48 @@
-import { Client, Deployment } from '@fadroma/agent'
+import { Client, Deployment, Pagination } from '@fadroma/agent'
 
 export default class Demo extends Deployment {
-  supplier = this.contract({
-    name: "supplier",
-    crate: "supplier",
-    client: Supplier,
-    initMsg: async () => ({})
-  })
-  distributor = this.contract({
-    name: "distributor",
-    crate: "distributor",
-    client: Distributor,
-    initMsg: async () => ({})
+
+  auctionFactory = this.contract({
+    name:    "AuctionFactory",
+    crate:   "factory",
+    client:  AuctionFactory,
+    initMsg: async () => ({
+      auction: (await this.auction.uploaded).asInfo
+    })
   })
 
-  // Add contract with::
-  //   contract = this.contract({...})
-  //
-  // Add contract from fadroma.json with:
-  //   contract = this.template('name').instance({...})
+  auction = this.template({
+    crate:  "auction",
+    client: Auction,
+  })
+
+  createAuction (name: string, end: number, admin: Address = this.agent?.address) {
+    return this.auctionFactory.expect().createAuction(name, end, admin)
+  }
+
+  get auctions () {
+    const factory = this.auctionFactory.expect('factory must be deployed to list auctions')
+    return new Promise(async (resolve) => {
+      let auctions = []
+      let page = []
+      while (page = await factory.listAuctions({ start: auctions.length, page: 10 })) {
+        this.log.log('Fetched auctions:', page)
+        auctions = [...auctions, ...page]
+      }
+      resolve(this.auction.instances(auctions))
+    })
+  }
 
 }
 
-export class Supplier extends Client {
-  // Implement methods calling the contract here:
-  //
-  // async myTx (arg1, arg2) {
-  //   return await this.execute({ my_tx: { arg1, arg2 }})
-  // }
-  // async myQuery (arg1, arg2) {
-  //   return await this.query({ my_query: { arg1, arg2 } })
-  // }
-  //
-  // or like this:
-  //
-  // myTx = (arg1, arg2) => this.execute({my_tx:{arg1, arg2}})
-  // myQuery = (arg1, arg2) => this.query({my_query:{arg1, arg2}})
-  //
+export class AuctionFactory extends Client {
+
+  createAuction = (name: string, end: number, admin: Address = this.agent.address) =>
+    this.execute({ create_auction: { admin, name, end_block: end } })
+
+  listAuctions = (pagination?: Pagination) =>
+    this.query({ list_auctions: { pagination } })
+
 }
 
-
-export class Distributor extends Client {
-  // Implement methods calling the contract here:
-  //
-  // async myTx (arg1, arg2) {
-  //   return await this.execute({ my_tx: { arg1, arg2 }})
-  // }
-  // async myQuery (arg1, arg2) {
-  //   return await this.query({ my_query: { arg1, arg2 } })
-  // }
-  //
-  // or like this:
-  //
-  // myTx = (arg1, arg2) => this.execute({my_tx:{arg1, arg2}})
-  // myQuery = (arg1, arg2) => this.query({my_query:{arg1, arg2}})
-  //
-}
+export class Auction extends Client {}

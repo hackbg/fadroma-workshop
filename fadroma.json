@@ -1,14 +1,6 @@
 {
   "templates": {
-    "supplier": {
-      "revision": "HEAD",
-      "workspace": ".",
-      "crate": "supplier"
-    },
-    "distributor": {
-      "revision": "HEAD",
-      "workspace": ".",
-      "crate": "distributor"
-    }
+    "factory": { "revision": "HEAD", "workspace": ".", "crate": "factory" },
+    "auction": { "revision": "HEAD", "workspace": ".", "crate": "auction" }
   }
 }
