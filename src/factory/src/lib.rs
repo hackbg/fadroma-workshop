@@ -61,10 +61,10 @@ pub mod factory {
             )?;
 
             let label = format!(
-                "Auction contract {}, started at: {}, ending at {}",
+                "Auction: {}, started at: {}, ending at {}",
                 name,
-                end_block,
-                env.block.height
+                env.block.height,
+                env.block.height + end_block
             );
         
             let msg = SubMsg::reply_on_success(

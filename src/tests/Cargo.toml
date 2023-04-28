@@ -1,0 +1,10 @@
+[package]
+name = "tests"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+fadroma = { git = "https://github.com/hackbg/fadroma", tag = "crate@0.8.6", features = ["scrt", "ensemble"] }
+factory = { path = "../factory" }
+auction = { path = "../auction" }
+shared = { path = "../shared" }

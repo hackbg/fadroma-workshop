@@ -59,6 +59,10 @@ pub mod auction {
             name: String,
             end_block: u64
         ) -> Result<Response, <Self as Auction>::Error> {
+            if end_block <= env.block.height {
+                return Err(StdError::generic_err("End block has already passed."));
+            }
+
             admin::init(deps.branch(), admin.as_deref(), &info)?;
             INFO.save(deps.storage, &SaleInfo { name, end_block })?;
     

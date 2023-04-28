@@ -15,14 +15,14 @@ Assuming we are in the root directory of the project:
 
     ```toml
     [dependencies]
-    fadroma = { git = "https://github.com/hackbg/fadroma", tag = "crate@0.8.5", features = ["vk"] }
+    fadroma = { git = "https://github.com/hackbg/fadroma", tag  = "crate@0.8.6", features = ["vk"] }
     serde = { version = "1.0.114", default-features = false, features = ["derive"] }
     ```
 
 We also need to enable the viewing key feature for our auction contract. So go to the project `Cargo.toml` file and **change** the fadroma import to:
 
 ```toml
-fadroma = { git = "https://github.com/hackbg/fadroma", tag = "crate@0.8.5", features = ["vk"] }
+fadroma = { git = "https://github.com/hackbg/fadroma", tag  = "crate@0.8.6", features = ["vk"] }
 ```
 
 We replaced the "scrt" with the "vk" feature which itself enables "scrt".

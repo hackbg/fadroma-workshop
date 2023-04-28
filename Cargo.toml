@@ -3,5 +3,6 @@ resolver = "2"
 members = [
   "src/auction",
   "src/factory",
-  "src/shared"
+  "src/shared",
+  "src/tests"
 ]

@@ -11,6 +11,6 @@ readme = "README.md"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-fadroma = { git = "https://github.com/hackbg/fadroma", tag = "crate@0.8.5", features = ["vk"] }
+fadroma = { git = "https://github.com/hackbg/fadroma", tag = "crate@0.8.6", features = ["vk"] }
 serde = { version = "1.0.114", default-features = false, features = ["derive"] }
 shared = { path = "../shared" }
