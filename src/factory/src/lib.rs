@@ -20,7 +20,7 @@ pub mod factory {
 
     namespace!(ContractNs, b"contract");
     const AUCTION_CONTRACT: SingleItem<
-        ContractInstantiationInfo,
+        ContractCode,
         ContractNs
     > = SingleItem::new();
 
@@ -33,7 +33,7 @@ pub mod factory {
 
     impl Contract {
         #[init(entry_wasm)]
-        pub fn new(auction: ContractInstantiationInfo) -> Result<Response, StdError> {
+        pub fn new(auction: ContractCode) -> Result<Response, StdError> {
             AUCTION_CONTRACT.save(deps.storage, &auction)?;
 
             Ok(Response::default())

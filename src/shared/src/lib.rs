@@ -1,7 +1,6 @@
 use fadroma::{
     dsl::*,
     schemars,
-    core::{Humanize, Canonize},
     cosmwasm_std::{self, Response, Uint128},
     bin_serde::{FadromaSerialize, FadromaDeserialize},
     killswitch::Killswitch,

@@ -83,41 +83,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "520fbf3c07483f94e3e3ca9d0cfd913d7718ef2483d2cfd91c0d9e91474ab913"
 
 [[package]]
-name = "cosmwasm-crypto"
-version = "1.1.9"
-source = "git+https://github.com/scrtlabs/cosmwasm?tag=v1.1.9-secret#e40a15f04dae80680dbe22aef760e5eaab6b0a19"
-dependencies = [
- "digest 0.10.6",
- "ed25519-zebra",
- "k256",
- "rand_core 0.6.4",
- "thiserror",
-]
-
-[[package]]
 name = "cosmwasm-derive"
-version = "1.1.9"
-source = "git+https://github.com/scrtlabs/cosmwasm?tag=v1.1.9-secret#e40a15f04dae80680dbe22aef760e5eaab6b0a19"
+version = "1.2.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1c9f7f0e51bfc7295f7b2664fe8513c966428642aa765dad8a74acdab5e0c773"
 dependencies = [
  "syn 1.0.109",
-]
-
-[[package]]
-name = "cosmwasm-std"
-version = "1.1.9"
-source = "git+https://github.com/scrtlabs/cosmwasm?tag=v1.1.9-secret#e40a15f04dae80680dbe22aef760e5eaab6b0a19"
-dependencies = [
- "base64",
- "cosmwasm-crypto",
- "cosmwasm-derive",
- "derivative",
- "forward_ref",
- "hex",
- "schemars",
- "serde",
- "serde-json-wasm",
- "thiserror",
- "uint",
 ]
 
 [[package]]
@@ -275,11 +246,11 @@ dependencies = [
 
 [[package]]
 name = "fadroma"
-version = "0.8.6"
-source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.6#5b3948836fd75afb55c9423818bfdfce1df57232"
+version = "0.8.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1657755506ec1fca33a68849f9f06eed874784ca529095211d258cabcbde8c6a"
 dependencies = [
  "anyhow",
- "cosmwasm-std",
  "fadroma-derive-canonize",
  "fadroma-derive-serde",
  "fadroma-dsl",
@@ -288,6 +259,7 @@ dependencies = [
  "rand_chacha",
  "rand_core 0.6.4",
  "schemars",
+ "secret-cosmwasm-std",
  "serde",
  "sha2 0.10.6",
  "subtle",
@@ -296,7 +268,8 @@ dependencies = [
 [[package]]
 name = "fadroma-derive-canonize"
 version = "0.3.5"
-source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.6#5b3948836fd75afb55c9423818bfdfce1df57232"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a21074b949be28d53c95fe92224a1afc714baaaa84998008cab3598a922645ba"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -306,7 +279,8 @@ dependencies = [
 [[package]]
 name = "fadroma-derive-serde"
 version = "0.3.0"
-source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.6#5b3948836fd75afb55c9423818bfdfce1df57232"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8d06e939e8f44305b68fad9ecb14461daf501c37c0d6f7ef311b1a9874c7dc33"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -316,7 +290,8 @@ dependencies = [
 [[package]]
 name = "fadroma-dsl"
 version = "0.8.0"
-source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.6#5b3948836fd75afb55c9423818bfdfce1df57232"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "47fc3c85905ccb11a1c61f0bc3211591293731733f6841bfa0b879e345525ef8"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -326,7 +301,8 @@ dependencies = [
 [[package]]
 name = "fadroma-proc-auth"
 version = "0.1.1"
-source = "git+https://github.com/hackbg/fadroma?tag=crate@0.8.6#5b3948836fd75afb55c9423818bfdfce1df57232"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "cbd44d25fc0b7a7427182e55f5c3d203f6e7918a5624cb0de1656c84af422f8f"
 dependencies = [
  "quote",
  "syn 1.0.109",
@@ -558,6 +534,38 @@ dependencies = [
  "pkcs8",
  "subtle",
  "zeroize",
+]
+
+[[package]]
+name = "secret-cosmwasm-crypto"
+version = "1.1.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "6ad1dad713e6bb53059296921501129fda75a964e0218e66d052ea746b242398"
+dependencies = [
+ "digest 0.10.6",
+ "ed25519-zebra",
+ "k256",
+ "rand_core 0.6.4",
+ "thiserror",
+]
+
+[[package]]
+name = "secret-cosmwasm-std"
+version = "1.1.10"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "96c6a61dae35087c6408d020abaacc91e6011135015ebcc680f37bada7391411"
+dependencies = [
+ "base64",
+ "cosmwasm-derive",
+ "derivative",
+ "forward_ref",
+ "hex",
+ "schemars",
+ "secret-cosmwasm-crypto",
+ "serde",
+ "serde-json-wasm",
+ "thiserror",
+ "uint",
 ]
 
 [[package]]

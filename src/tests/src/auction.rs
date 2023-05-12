@@ -9,7 +9,7 @@ use fadroma::{
         Response, Binary, Reply, Uint128, from_binary, coin
     },
     tokens::one_token,
-    impl_contract_harness
+    contract_harness
 };
 use ::factory::factory::{self, AuctionEntry};
 use auction::auction;
@@ -18,7 +18,12 @@ use shared::{Pagination, PaginatedResponse, SaleStatus};
 const FACTORY: &str = "factory";
 const ADMIN: &str = "admin";
 
-impl_contract_harness!(Auction, auction);
+contract_harness! {
+    Auction, 
+    init: auction::instantiate,
+    execute: auction::execute,
+    query: auction::query
+}
 
 struct Factory;
 
