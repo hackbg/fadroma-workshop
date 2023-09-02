@@ -1,6 +1,6 @@
 # Fadroma Workshop
 
-1. `npx @hackbg/fadroma@latest create`
+1. `npx @hackbg/fadroma@1.4.12 create`
 2. follow steps in project wizard
 3. `cd projectname`
 4. `npm i`
