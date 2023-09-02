@@ -1,12 +1,17 @@
 # Fadroma Workshop
 
-1. `npx @hackbg/fadroma@1.4.12 create`
-2. follow steps in project wizard
-3. `cd projectname`
-4. `npm i`
-5. `cargo update`
-4. `npm run build`
-5. `npm run devnet deploy`
+Requirements: Git, Node >=16, Cargo, Docker.
+
+1. Run the project creation wizard: `npx @hackbg/fadroma@1.4.12 create`
+2. Enter your project directory: `cd projectname`
+3. Install Node dependencies: `npm i`
+4. Install Rust dependencies, generating initial lockfile: `cargo update`
+5. Compile the contracts: `npm run build`
+6. Deploy the contracts to a local devnet: `npm run devnet deploy`
+
+Once you've confirmed that the above works,
+help yourself to the [contracts walkthrough](./WALKTHROUGH.md)
+and the [deployment guide](./FACTORY.md). Happy hacking!
 
 ---
 
